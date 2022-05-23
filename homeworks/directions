@@ -12,7 +12,16 @@ Homework 1 feedback:
 connect plane and model
 
 Homework 2 feedback: 
+Exercise 2
+(-1)
+The foreign key constraints are 
+Enrolled(foreign key(sid, cid)), 
+Teaches(foreign key(fid, cid)), 
+Meets_In(foreign key(cid, rno))
 
+Exercise 3
+(-1)
+missing [telephone-home]
 
 Homework 3 feedback: 
 
