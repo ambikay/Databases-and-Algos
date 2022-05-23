@@ -1,0 +1,42 @@
+1. Suppose you are given a relation R with four attributes ABCD. For each of the following sets of FDs, assuming those are the only dependencies that hold for R, do the following:
+
+i) Identify the candidate key(s) for R
+ii) Identify the best normal form that R satisfies
+iii) If R is not in BCNF, decompose it into a set of BCNF relations
+
+a) C-->D, C-->A, B-->C
+b) B-->C, D-->A
+c) ABC-->D, D-->A
+d) AB-->C, AB-->D, C-->A, D-->B
+
+2. Consider the attribute set R=ABCDEFGH and the FD set F={AB-->C, AC-->B, AD-->E, B-->D, BC-->A, E-->G}
+
+For each one of the following sets of attributes:
+
+i) Compute the set of functional dependencies that hold over that set
+ii) Compute a minimal cover
+
+a) ABC,     b) ABCD,    c) ABCEG,     d) DCEGH,    e) ACEH
+
+3. Suppose that we have the following four tuples in a relation S with three attributes ABC: (1,2,3), (4,2,3), (5,3,3), (5,3,4). Which of the following functional (-->) and multivalued  (-->>) dependencies can you infer does not hold over relation S?
+
+a) A-->B
+b) A-->>B
+c) BC-->A
+d) BC-->>A
+e) B->C
+f) B-->>C
+
+4. Consider the university enrollment database schema:
+
+Student(snum: integer, sname:string, major:string, level:string, age:integer)
+Class(name:string, meets_at:time, room:string, fid:integer)
+Enrolled(snum:integer, cname:string)
+Faculty(fid:integer, fname:string, deptid:integer)
+
+For each of the following transactions, state the SQL isolation level you would use and explain why you chose it.
+
+a) Enroll a student (snum) into the class named 'Analysis of Algorithms'
+b) Change enrollment for a student (snum) from one class to another class
+c) Assign a new faculty member (fid)  to the class with the least number of students.
+d) For each class, show the number of students enrolled in the class.
