@@ -1,0 +1,102 @@
+1)-------------------------------------------------------------
+
+select t.x,
+       sum(if(t.y='item1',t.z,0)) item1,
+       sum(if(t.y='item2',t.z,0)) item2,
+       sum(if(t.y='item3',t.z,0)) item3
+from t
+group by t.x;
+
+
+2)-------------------------------------------------------------
+ Create the tables using the following SQL instructions:
+
+create table vehicles(
+manufacturer varchar(10),
+model varchar(10),
+color varchar(10),
+miles int,
+vin varchar(50),
+primary key (vin));
+
+create table vans(
+manufacturer varchar(10),
+model varchar(10),
+passengers int,
+cyliners int,
+abs boolean,
+price int,
+primary key (manufacturer,model));
+
+create table cars(
+manufacturer varchar(10),
+model varchar(10),
+cyliners int,
+abs boolean,
+price int,
+primary key (manufacturer,model));
+
+create table suvs(
+manufacturer varchar(10),
+model varchar(10),
+passengers int,
+cyliners int,
+abs boolean,
+price int,
+primary key (manufacturer,model));
+
+  (a)-------------------------------------------------------------
+
+select vehicles.vin,vehicles.color
+from vans join vehicles using (manufacturer,model)
+where vans.price>=15000
+
+union
+
+select vehicles.vin,vehicles.color
+from cars join vehicles using (manufacturer,model)
+where cars.price>=15000
+
+union
+
+select vehicles.vin,vehicles.color
+from suvs join vehicles using (manufacturer,model)
+where suvs.price>=15000;
+
+
+(b)-------------------------------------------------------------
+
+select vans.manufacturer,vans.model
+from vans
+join vehicles using (manufacturer, model)
+where color='blue' and price<12000;
+
+(c)-------------------------------------------------------------
+
+select model, price
+from vans
+where manufacturer='honda'
+
+union
+
+select model, price
+from cars
+where manufacturer='honda'
+
+union
+
+select model, price
+from suvs
+where manufacturer='honda';
+
+(d)-------------------------------------------------------------
+
+select manufacturer
+from cars
+where manufacturer not in (
+   select manufacturer
+   from vans);
+
+
+
+
